@@ -1,6 +1,6 @@
 
 // Rectangle selections ----------
-export const ViewerSelectionMethods {
+export const ViewerSelectionMethods = {
 
 	addRectangleSelection(){
     
