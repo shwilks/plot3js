@@ -1,0 +1,27 @@
+{
+  "name": "plot3js",
+  "version": "1.0.1",
+  "description": "Plotting functions for threejs",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "test",
+    "build-prod": "webpack --mode=production",
+    "build-dev": "webpack --mode=development --devtool eval-source-map"
+  },
+  "keywords": [
+    "threejs",
+    "plotting"
+  ],
+  "author": "S.H.Wilks",
+  "license": "AGPL-3.0",
+  "devDependencies": {
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "three": "github:mrdoob/three.js"
+  }
+}
