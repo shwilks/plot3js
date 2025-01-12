@@ -5,8 +5,8 @@ import { Renderer } from "./renderer.js";
 import { Camera } from "./camera.js";
 import { Raytracer } from "./raytrace.js";
 import { Shaders } from "./shaders.js";
-import { NavMixin } from "./navigation.js";
-import { LoadMixin } from "./load.js";
+import { NavMethods } from "./navigation.js";
+import { LoadMethods } from "./load.js";
 import { ToggleMethods } from "./toggle.js";
 import { HighlightMethods } from "./highlight.js";
 import { ApiMethods } from "./api.js";
@@ -202,8 +202,8 @@ let Viewer = class R3JSviewer {
 
 // Assign mixins
 Viewer.prototype.eventListeners = [];
-Object.assign(Viewer.prototype, NavMixin);
-Object.assign(Viewer.prototype, LoadMixin);
+Object.assign(Viewer.prototype, NavMethods);
+Object.assign(Viewer.prototype, LoadMethods);
 Object.assign(Viewer.prototype, ToggleMethods);
 Object.assign(Viewer.prototype, HighlightMethods);
 Object.assign(Viewer.prototype, ApiMethods);

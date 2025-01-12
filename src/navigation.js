@@ -1,7 +1,7 @@
 
 import * as THREE from 'three';
 
-export const NavMixin = {
+export const NavMethods = {
 
     scrollFocus() {
         // return this.viewport.holder.matches(':focus');

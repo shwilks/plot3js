@@ -1,5 +1,5 @@
 
-export const LoadMixin = {
+export const LoadMethods = {
 
     load(plotData, settings = {}){
 
