@@ -99,7 +99,9 @@ export const LoadMethods = {
             if(plotData.scene.rotation)    this.scene.setRotation(plotData.scene.rotation)
             if(plotData.scene.zoom)        this.camera.setZoom(plotData.scene.zoom)
         }
-
+        
+        this.perspcontrols.update();
+        this.orthocontrols.update();
         this.render();
 
         // Add a plot loaded event
