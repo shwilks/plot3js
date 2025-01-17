@@ -7,6 +7,8 @@ let Camera = class Camera {
 		this.viewer = viewer;
 		this.perspcamera = new PerspCamera(viewer);
 		this.orthocamera = new OrthoCamera(viewer);
+		viewer.scene.scene.add(this.perspcamera.camera);
+		viewer.scene.scene.add(this.orthocamera.camera);
 	}
 
 	// Set the zoom
@@ -57,7 +59,7 @@ let Camera = class Camera {
 	}
 
 	getPosition(){
-		return(this.perspcamera.getPosition());
+		return(this.maincamera.getPosition());
 	}
 
 	// Get the threejs camera
@@ -85,6 +87,10 @@ let Camera = class Camera {
 		}
 		this.viewer.render();
 		this.viewer.dispatchEvent("cameraTypeChange", {type: this.type});
+	}
+
+	add(object) {
+		this.maincamera.camera.add(object);
 	}
 
 }
@@ -167,6 +173,11 @@ let BaseCamera = class BaseCamera {
 		return(this.camera);
 	}
 
+	// Get the position
+	getPosition(){
+		return(this.camera.position);
+	}
+
 }
 
 
@@ -187,11 +198,6 @@ let PerspCamera = class PerspCamera extends BaseCamera {
 
 		return(this.camera.position.z);
 
-	}
-
-	// Get the position
-	getPosition(){
-		return(this.camera.position);
 	}
 
 	// Set the zoom
@@ -284,6 +290,13 @@ let OrthoCamera = class OrthoCamera extends BaseCamera {
         
         this.setZoom(zoom*zoom_factor);
 
+	}
+
+	getPosition(){
+		var vec = new THREE.Vector3();
+		this.camera.getWorldDirection(vec);
+		vec.negate();
+		return vec;
 	}
 
 }
