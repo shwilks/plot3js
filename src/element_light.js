@@ -18,21 +18,27 @@ export const element_Light = class Light extends element_base {
         }
 
         if(args.lighttype == "directional"){
-        	var object = new THREE.DirectionalLight(args.color);
+        	
+            var object = new THREE.DirectionalLight(args.color);
 	        object.position.set(
 	        	args.position[0],
 	        	args.position[1],
 	        	args.position[2]
-	        ).normalize();
+	        );
+
         } else if(args.lighttype == "point") {
+            
             var object = new THREE.PointLight(args.color);
             object.position.set(
                 args.position[0],
                 args.position[1],
                 args.position[2]
             );
+
         } else {
-        	var object = new THREE.AmbientLight(args.color);
+        	
+            var object = new THREE.AmbientLight(args.color);
+
         }
 
         // Set light intensity
