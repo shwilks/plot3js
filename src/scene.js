@@ -445,9 +445,9 @@ let Scene = class Scene {
 
         for(var i=0; i<this.lights.length; i++){
             if(this.lights[i].type == "PointLight") {
-                this.remove(this.lights[i]);
+                this.remove(this.lights[i].object);
             } else {
-                this.scene.remove(this.lights[i]);
+                this.viewer.camera.remove( this.lights[i].object );
             }
         }
         this.lights = [];
@@ -460,9 +460,9 @@ let Scene = class Scene {
         if(light.object.type == "PointLight") {
             this.add( light.object );
         } else {
-            this.scene.add( light.object );
+            this.viewer.camera.add( light.object );
         }
-        this.lights.push( light.object );
+        this.lights.push( light );
 
     }
 
