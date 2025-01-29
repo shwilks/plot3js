@@ -93,12 +93,12 @@ export const LoadMethods = {
         // Fire any resize event listeners
         this.viewport.onwindowresize();
 
-        // Render the plot
-        if(plotData.scene){
-            if(plotData.scene.translation) this.scene.setTranslation(plotData.scene.translation)
-            if(plotData.scene.rotation)    this.scene.setRotation(plotData.scene.rotation)
-            if(plotData.scene.zoom)        this.camera.setZoom(plotData.scene.zoom)
-        }
+        // // Render the plot
+        // if(plotData.scene){
+        //     if(plotData.scene.translation) this.scene.setTranslation(plotData.scene.translation)
+        //     if(plotData.scene.rotation)    this.scene.setRotation(plotData.scene.rotation)
+        //     if(plotData.scene.zoom)        this.camera.setZoom(plotData.scene.zoom)
+        // }
         
         this.perspcontrols.update();
         this.orthocontrols.update();

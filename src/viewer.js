@@ -1,4 +1,5 @@
 
+import * as THREE from 'three';
 import { Viewport } from "./viewport.js";
 import { Scene } from "./scene.js";
 import { Renderer } from "./renderer.js";
@@ -119,8 +120,8 @@ let Viewer = class R3JSviewer {
     // Rest transformation
     resetTransformation() {
         this.sceneChange = true;
-        this.scene.resetTransformation();
         this.camera.resetZoom();
+        this.camera.resetTransformation();
         this.scene.showhideDynamics(this.camera);
     }
 
@@ -190,12 +191,46 @@ let Viewer = class R3JSviewer {
         }
     }
 
-    addHoverInfo = function(div){
+    addHoverInfo = function (div) {
         this.viewport.hover_info.add(div);
     }
-    
-    removeHoverInfo = function(div){
+
+    removeHoverInfo = function (div) {
         this.viewport.hover_info.remove(div);
+    }
+
+    updateTransformInfo = function () {
+
+        this.viewport.transform_info.zoom.input.value = this.getCameraZoom().toFixed(4);
+
+        let translation = this.getSceneTranslation();
+        this.viewport.transform_info.translation.x.value = translation.x.toFixed(4);
+        this.viewport.transform_info.translation.y.value = translation.y.toFixed(4);
+        this.viewport.transform_info.translation.z.value = translation.z.toFixed(4);
+
+        let rotation = this.getSceneRotation();
+        this.viewport.transform_info.rotation.x.value = rotation.x.toFixed(4);
+        this.viewport.transform_info.rotation.y.value = rotation.y.toFixed(4);
+        this.viewport.transform_info.rotation.z.value = rotation.z.toFixed(4);
+
+    }
+
+    getCameraZoom = function () {
+
+        return this.camera.getZoom();
+
+    }
+
+    getSceneRotation = function () {
+
+        return this.camera.getSceneRotation();
+
+    }
+
+    getSceneTranslation = function () {
+
+        return this.camera.getSceneTranslation();
+
     }
 
 }
@@ -210,4 +245,4 @@ Object.assign(Viewer.prototype, ApiMethods);
 Object.assign(Viewer.prototype, ViewerButtonMethods);
 Object.assign(Viewer.prototype, saveImgMethods);
 
-export {Viewer};
+export { Viewer };

@@ -126,26 +126,6 @@ let Viewport = class Viewport{
         this.placeholder.classList.add("viewport-placeholder");
         this.div.appendChild(this.placeholder);
 
-        // Add event listeners
-        viewer.addEventListener("zoom", e => {
-            this.transform_info.zoom.input.value = e.detail.end_zoom.toFixed(4);
-        });
-
-        viewer.addEventListener("rotate", e => {
-            var rotation = viewer.scene.getRotation();
-            this.transform_info.rotation.x.value = rotation[0].toFixed(4);
-            this.transform_info.rotation.y.value = rotation[1].toFixed(4);
-            this.transform_info.rotation.z.value = rotation[2].toFixed(4);
-        });
-
-        viewer.addEventListener("translate", e => {
-            var translation = viewer.scene.getTranslation();
-            this.transform_info.translation.x.value = translation[0].toFixed(4);
-            this.transform_info.translation.y.value = translation[1].toFixed(4);
-            this.transform_info.translation.z.value = translation[2].toFixed(4);
-        });
-
-
     }
 
 
